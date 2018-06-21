@@ -31,6 +31,10 @@ module Librato
         end
       end
 
+      def alive?
+        @thread && @thread.alive?
+      end
+
       # Give some structure to worker start times so when possible
       # they will be in sync.
       #
