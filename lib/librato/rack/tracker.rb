@@ -23,7 +23,7 @@ module Librato
       # if you are using this externally, use #start! instead as this
       # method may change
       def check_worker
-        return if @worker # already running
+        return if @worker && @worker.alive?# already running
         return unless start_worker?
         log(:debug) { "config: #{config.dump}" }
         @pid = $$
